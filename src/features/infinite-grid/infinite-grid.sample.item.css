@@ -1,0 +1,59 @@
+.grid-item-structure {
+  display: flex;
+  flex: 1 1 0;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.grid-item-structure.horizontal {
+  flex-direction: row;
+}
+
+.grid-item-structure.vertical {
+  flex-direction: column;
+}
+
+div.grid-item-leaf {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+  min-height: 100px;
+  flex: 1 1 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+div.grid-item-leaf > button {
+  position: absolute;
+}
+
+div.grid-item-leaf > button.top-button {
+  top: 0;
+  width: 100%;
+}
+div.grid-item-leaf > button.bottom-button {
+  bottom: 0;
+  width: 100%;
+}
+div.grid-item-leaf > button.left-button {
+  left: 0;
+  height: 100%;
+}
+div.grid-item-leaf > button.right-button {
+  right: 0;
+  height: 100%;
+}
+div.grid-item-leaf > button.remove-button {
+  top: 0;
+  right: 0;
+}
