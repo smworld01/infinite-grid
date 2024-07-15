@@ -2,12 +2,13 @@ import { useInfiniteGridSelector } from "./infinite-grid.hook.selector";
 import { Id, isGridLeafItem, isGridParentItem } from "./infinite-grid.type";
 
 import "./infinite-grid.sample.item.css";
+import { useRef } from "react";
+import InfiniteGridDragPlaceholder from "./infinite-grid.component.darg-placeholder";
+import useInfiniteGridInteractionDrag from "./infinite-grid.hook.interaction.drag";
 
 export default function InfiniteGridSampleItem(props: { id: Id }) {
   const { id } = props;
   const item = useInfiniteGridSelector((state) => state.gridItems[id]);
-
-  console.log("Rendering item", id);
 
   if (isGridParentItem(item)) {
     return (
@@ -18,13 +19,22 @@ export default function InfiniteGridSampleItem(props: { id: Id }) {
       </div>
     );
   } else if (isGridLeafItem(item)) {
-    return (
-      <div className="grid-item-leaf">
-        {props.id}
-        <InfiniteGridSampleItemButtons id={props.id} />
-      </div>
-    );
+    return <InfiniteGridSampleLeafItem id={id} />;
   }
+}
+
+function InfiniteGridSampleLeafItem(props: { id: Id }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useInfiniteGridInteractionDrag({ id: props.id, ref });
+
+  return (
+    <div className="grid-item-leaf" draggable ref={ref}>
+      {props.id}
+      <InfiniteGridSampleItemButtons id={props.id} />
+      <InfiniteGridDragPlaceholder id={props.id} containerRef={ref} />
+    </div>
+  );
 }
 
 function InfiniteGridSampleItemButtons(props: { id: Id }) {

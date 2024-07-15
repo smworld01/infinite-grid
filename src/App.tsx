@@ -1,5 +1,7 @@
+import InfiniteGridSample from "./features/infinite-grid/infinite-grid.sample";
+
 function App() {
-  return <></>;
+  return <InfiniteGridSample />;
 }
 
 export default App;

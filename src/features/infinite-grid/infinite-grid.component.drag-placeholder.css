@@ -1,0 +1,36 @@
+.grid-item-structure .drag-placeholder {
+  pointer-events: none;
+  background-color: rgba(128, 128, 128, 0.35);
+  position: absolute;
+}
+
+.grid-item-structure .drag-placeholder.top {
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 50%;
+}
+.grid-item-structure .drag-placeholder.right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+}
+.grid-item-structure .drag-placeholder.bottom {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50%;
+}
+.grid-item-structure .drag-placeholder.left {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+}
+.grid-item-structure .drag-placeholder.center {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
